@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session 
-import crud.crud_usuarios, config.db, schemas.schema_usuario, models.model_usuario
+import crud.crud_usuario, config.db, schemas.schema_usuario, models.model_usuario
 
 router = APIRouter()
 
@@ -15,7 +15,7 @@ def get_db():
 # GET - Listar todos los usuarios
 @router.get("/usuarios", response_model=list[schemas.schema_usuario.Usuario])
 def get_usuarios(db: Session = Depends(get_db)):
-    usuarios = crud.crud_usuarios.get_usuarios(db)
+    usuarios = crud.crud_usuario.get_usuarios(db)
     if not usuarios:
         raise HTTPException(status_code=404, detail="No se encontraron usuarios")
     return usuarios
