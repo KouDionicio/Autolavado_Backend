@@ -6,7 +6,6 @@ from datetime import datetime
 
 
 class Rol(Base):
-    """Creación de la tabla de roles en MySQL"""
 
     __tablename__ = "tbc_roles"
 
@@ -20,3 +19,4 @@ class Rol(Base):
         default=datetime.utcnow,
         onupdate=datetime.utcnow
     )
+
